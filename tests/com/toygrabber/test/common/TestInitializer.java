@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import com.toygrabber.domain.Coordinates;
-import com.toygrabber.domain.Item;
+import com.toygrabber.inner.domain.Coordinates;
+import com.toygrabber.inner.domain.Item;
 
 public class TestInitializer {
 	public static Collection<Integer[]> initializeTestCoordinatesDto() {

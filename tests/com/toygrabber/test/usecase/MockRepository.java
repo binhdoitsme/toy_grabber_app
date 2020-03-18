@@ -3,9 +3,9 @@ package com.toygrabber.test.usecase;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.toygrabber.domain.Coordinates;
-import com.toygrabber.domain.Item;
-import com.toygrabber.repository.ItemRepository;
+import com.toygrabber.inner.domain.Coordinates;
+import com.toygrabber.inner.domain.Item;
+import com.toygrabber.inner.repository.ItemRepository;
 
 public class MockRepository implements ItemRepository {
 	

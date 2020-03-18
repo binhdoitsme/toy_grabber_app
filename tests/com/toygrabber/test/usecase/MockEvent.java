@@ -3,9 +3,9 @@ package com.toygrabber.test.usecase;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.toygrabber.domain.Coordinates;
-import com.toygrabber.domain.Item;
-import com.toygrabber.usecase.LookupItemEvent;
+import com.toygrabber.inner.domain.Coordinates;
+import com.toygrabber.inner.domain.Item;
+import com.toygrabber.inner.usecase.event.LookupItemEvent;
 
 public class MockEvent implements LookupItemEvent {
 	

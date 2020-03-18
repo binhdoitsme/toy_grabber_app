@@ -6,20 +6,20 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.toygrabber.common.DataTransfer;
-import com.toygrabber.datatransfer.CoordinatesDto;
-import com.toygrabber.datatransfer.InsertedCoinsDto;
-import com.toygrabber.domain.Coordinates;
-import com.toygrabber.domain.Item;
+import com.toygrabber.base.datatransfer.DataTransfer;
+import com.toygrabber.inner.datatransfer.CoordinatesDto;
+import com.toygrabber.inner.datatransfer.InsertedCoinsDto;
+import com.toygrabber.inner.domain.Coordinates;
+import com.toygrabber.inner.domain.Item;
+import com.toygrabber.inner.usecase.GrabItemRequest;
+import com.toygrabber.inner.usecase.GrabItemUseCase;
+import com.toygrabber.inner.usecase.InsertCoinRequest;
+import com.toygrabber.inner.usecase.InsertCoinUseCase;
+import com.toygrabber.inner.usecase.PlaceClawRequest;
+import com.toygrabber.inner.usecase.PlaceClawUseCase;
+import com.toygrabber.inner.usecase.PlaceItemUseCase;
+import com.toygrabber.inner.usecase.event.LookupItemEvent;
 import com.toygrabber.test.common.TestInitializer;
-import com.toygrabber.usecase.GrabItemRequest;
-import com.toygrabber.usecase.GrabItemUseCase;
-import com.toygrabber.usecase.InsertCoinRequest;
-import com.toygrabber.usecase.InsertCoinUseCase;
-import com.toygrabber.usecase.LookupItemEvent;
-import com.toygrabber.usecase.PlaceClawRequest;
-import com.toygrabber.usecase.PlaceClawUseCase;
-import com.toygrabber.usecase.PlaceItemUseCase;
 
 public class UseCaseTest {
 	@Test
