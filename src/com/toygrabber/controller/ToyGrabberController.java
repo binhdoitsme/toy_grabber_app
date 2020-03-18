@@ -8,14 +8,15 @@ import com.toygrabber.common.Response;
 import com.toygrabber.common.ResponsePresenter;
 import com.toygrabber.domain.Coordinates;
 import com.toygrabber.domain.Item;
+import com.toygrabber.event.LookupItemEventImpl;
 import com.toygrabber.presenter.ToyGrabberPresenter;
-import com.toygrabber.repository.ItemRepository;
 import com.toygrabber.usecase.GrabItemRequest;
 import com.toygrabber.usecase.GrabItemResponse;
 import com.toygrabber.usecase.GrabItemUseCase;
 import com.toygrabber.usecase.InsertCoinRequest;
 import com.toygrabber.usecase.InsertCoinResponse;
 import com.toygrabber.usecase.InsertCoinUseCase;
+import com.toygrabber.usecase.LookupItemEvent;
 import com.toygrabber.usecase.PlaceClawRequest;
 import com.toygrabber.usecase.PlaceClawResponse;
 import com.toygrabber.usecase.PlaceClawUseCase;
@@ -26,7 +27,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ToyGrabberController {
 	@Setter
-	private ItemRepository repository;
+	private LookupItemEvent event;
 	
 	public int insertCoins(DataTransfer insertedCoins) {
 		Request coinInsertRequest = new InsertCoinRequest(insertedCoins);
@@ -42,9 +43,14 @@ public class ToyGrabberController {
 	}
 	
 	public String getPrize(Collection<Coordinates> positions) {
-		Request grabItemRequest = new GrabItemRequest(positions, repository);
+		GrabItemRequest grabItemRequest = new GrabItemRequest(positions, event);
+		setEventPosition(positions, event);
 		GrabItemResponse response = (GrabItemResponse)new GrabItemUseCase().handle(grabItemRequest);
 		return getPrizeMessage(response);
+	}
+	
+	void setEventPosition(Collection<Coordinates> positions, LookupItemEvent event) {
+		((LookupItemEventImpl)event).setPositions(positions);
 	}
 	
 	public String getPrizeMessage(GrabItemResponse response) {

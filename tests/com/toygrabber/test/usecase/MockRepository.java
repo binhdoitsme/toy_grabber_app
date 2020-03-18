@@ -39,8 +39,14 @@ public class MockRepository implements ItemRepository {
 	public boolean exists(Integer primaryKey) {
 		return false;
 	}
+	
 	@Override
 	public Collection<Item> findByPosition(Coordinates position) {
+		return null;
+	}
+	
+	@Override
+	public Collection<Item> findByPositions(Collection<Coordinates> positions) {
 		return generateMockCollection();
 	}
 }

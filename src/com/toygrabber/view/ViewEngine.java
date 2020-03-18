@@ -11,7 +11,7 @@ import com.toygrabber.datatransfer.CoordinatesDto;
 import com.toygrabber.datatransfer.InsertedCoinsDto;
 import com.toygrabber.domain.Coordinates;
 import com.toygrabber.exception.NoMoreTurnException;
-import com.toygrabber.repository.ItemRepository;
+import com.toygrabber.usecase.LookupItemEvent;
 
 public class ViewEngine implements View {
 	
@@ -28,8 +28,8 @@ public class ViewEngine implements View {
 		turnCount = 0;
 	}
 	
-	public void setRepository(ItemRepository repository) {
-		controller.setRepository(repository);
+	public void setEvent(LookupItemEvent event) {
+		controller.setEvent(event);
 	}
 	
 	public void welcome() throws NoMoreTurnException {

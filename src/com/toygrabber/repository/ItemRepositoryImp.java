@@ -65,5 +65,14 @@ public class ItemRepositoryImp implements ItemRepository {
 		});
 		return matchedItems;
 	}
+	
+	@Override
+	public Collection<Item> findByPositions(Collection<Coordinates> positions) {
+		List<Item> matchedItems = new ArrayList<Item>();
+		for (Coordinates position : positions) {
+			matchedItems.addAll(findByPosition(position));
+		}
+		return matchedItems;
+	}
 
 }

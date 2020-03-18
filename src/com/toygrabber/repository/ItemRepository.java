@@ -8,4 +8,5 @@ import com.toygrabber.domain.Item;
 
 public interface ItemRepository extends Repository<Item, Integer> {
 	Collection<Item> findByPosition(Coordinates position);
+	Collection<Item> findByPositions(Collection<Coordinates> positions); 
 }

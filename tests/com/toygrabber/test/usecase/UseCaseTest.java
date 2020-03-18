@@ -11,12 +11,12 @@ import com.toygrabber.datatransfer.CoordinatesDto;
 import com.toygrabber.datatransfer.InsertedCoinsDto;
 import com.toygrabber.domain.Coordinates;
 import com.toygrabber.domain.Item;
-import com.toygrabber.repository.ItemRepository;
 import com.toygrabber.test.common.TestInitializer;
 import com.toygrabber.usecase.GrabItemRequest;
 import com.toygrabber.usecase.GrabItemUseCase;
 import com.toygrabber.usecase.InsertCoinRequest;
 import com.toygrabber.usecase.InsertCoinUseCase;
+import com.toygrabber.usecase.LookupItemEvent;
 import com.toygrabber.usecase.PlaceClawRequest;
 import com.toygrabber.usecase.PlaceClawUseCase;
 import com.toygrabber.usecase.PlaceItemUseCase;
@@ -39,8 +39,8 @@ public class UseCaseTest {
 	@Test
 	public void testGrabItemUseCase() {
 		Collection<Coordinates> requestCoordinates = TestInitializer.initializeTestCoordinates();
-		ItemRepository repository = new MockRepository();
-		GrabItemRequest request = new GrabItemRequest(requestCoordinates, repository);
+		LookupItemEvent event = new MockEvent();
+		GrabItemRequest request = new GrabItemRequest(requestCoordinates, event);
 		new GrabItemUseCase().handle(request);
 	}
 	
